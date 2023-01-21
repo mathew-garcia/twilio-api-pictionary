@@ -1,0 +1,23 @@
+video {
+    height: 100%;
+    width: 100%;
+}
+
+
+#whiteboard-container video {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+#whiteboard {
+    display: block;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+}
+
+.participantDiv{
+    height: 50%;
+    width: 100%;
+}
