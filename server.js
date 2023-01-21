@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 require('dotenv').config();
 const { v4: uuidv4 } = require('uuid');
 const { AccessToken } = require('twilio').jwt;
