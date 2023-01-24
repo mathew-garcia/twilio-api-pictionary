@@ -13,8 +13,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 </head>
 
-<body>
-    <nav class="navbar " style="background-color: #000000;">
+<body class="bg-dark">
+    <nav class="navbar sticky-top" style="background-color: #000000;">
         <div class="container-fluid row pt-1">
             <div class="col-4">
                 <div class="row">
@@ -30,12 +30,12 @@
                         </label>
                     </div>
 
-                    <div class="col-2">
+                    <div class="col-2 ">
                         <div id="pencil-color" class="mt-1 border border-light"
                             style="height: 5vh;width: 5vh; ;background-color: black;"></div>
                     </div>
 
-                    <div class="col-3">
+                    <div class="col-3 ">
                         <div class="row row-cols-4 border" style="height: 100%;">
                             <btn class="col btn rounded-0 btn-set-color" style="background-color: gray;">
                             </btn>
@@ -58,7 +58,7 @@
                 </div>
             </div>
             <div class="col-3  ">
-                <h5 class="text-light" id="txt-generated-word">Word goes here</h5>
+                <h5 class="text-light" id="txt-generated-word">Pictionary word</h5>
             </div>
             <div class="col-2">
                 <button class="btn btn-outline-light" type="button" id="btn-draw"> Draw
@@ -70,13 +70,13 @@
         </div>
     </nav>
     <div class="container-fluid bg-dark" style="height: 100vh;">
-        <div class="row pt-3 ">
+        <div class="row pt-3">
             <div class="col-9" id="whiteboard-container">
                 <canvas id="whiteboard">
                 </canvas>
             </div>
-            <div class="col-3  overflow-hidden">
-                <div class="" id="webcam-feed-container"></div>
+            <div class="col-3" style="height: 80vh;">
+                <div class="overflow-scroll" id="webcam-feed-container" style="height: 80vh;"></div>
             </div>
 
         </div>
