@@ -16,8 +16,19 @@ app.use(express.static('public'));
 const twilioClient = require('twilio')(
   process.env.TWILIO_API_KEY_SID,
   process.env.TWILIO_API_KEY_SECRET,
-  { accountSid: process.env.TWILIO_ACCOUNT_SID },
+  { accountSid: process.env.TWILIO_ACCOUNT_SID }
 );
+
+const pictionaryWords = [
+  'Boat',
+  'Airplane',
+  'Car',
+  'Motorcycle',
+  'Train',
+  'Submarine',
+  'Spaceship',
+  'Bicycle',
+];
 
 const findOrCreateRoom = async (roomName) => {
   try {
@@ -39,7 +50,7 @@ const getAccessToken = (roomName) => {
     process.env.TWILIO_ACCOUNT_SID,
     process.env.TWILIO_API_KEY_SID,
     process.env.TWILIO_API_KEY_SECRET,
-    { identity: uuidv4() },
+    { identity: uuidv4() }
   );
 
   const videoGrant = new VideoGrant({
@@ -66,6 +77,21 @@ app.post('/join-room', async (req, res) => {
   res.send({
     token,
   });
+});
+
+app.get('/generate-pictionary-word', (req, res) => {
+  if (pictionaryWords.length > 0) {
+    const index = Math.floor(Math.random() * pictionaryWords.length);
+    const word = pictionaryWords[index];
+    pictionaryWords.splice(index, 1);
+    res.send({
+      word,
+    });
+  } else {
+    res.send({
+      word: 'There are no more pictionary words',
+    });
+  }
 });
 
 app.listen(port, () => {
